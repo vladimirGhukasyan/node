@@ -10,6 +10,7 @@ var mongoose = require('mongoose');
 const passport = require('passport');
 var fs = require('fs');
 var flash = require('connect-flash');
+var i18n= require('./config/i18n')
 
 var app = express();
 
@@ -18,7 +19,6 @@ require('./config/db')(app, mongoose);
 fs.readdirSync(__dirname + '/models').forEach(function (file) {
   if (~file.indexOf('.js')) require(__dirname + '/models/' + file);
 });
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,6 +32,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(i18n.init);
 app.use(flash());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
