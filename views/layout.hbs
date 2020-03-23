@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>Vizew - Blog &amp; Magazine HTML Template</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/img/core-img/favicon.ico">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+<!-- Preloader -->
+<div class="preloader d-flex align-items-center justify-content-center">
+    <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
+<!-- ##### Header Area Start ##### -->
+{{> menu}}
+<!-- ##### Header Area End ##### -->
+
+<!-- ##### Breadcrumb Area Start ##### -->
+<div class="vizew-breadcrumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">{{title}}</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### Breadcrumb Area End ##### -->
+
+<!-- ##### Login Area Start ##### -->
+{{{body}}}
+<!-- ##### Login Area End ##### -->
+
+<!-- ##### Footer Area Start ##### -->
+{{> footer}}
+<!-- ##### Footer Area End ##### -->
+
+<!-- ##### All Javascript Script ##### -->
+<!-- jQuery-2.2.4 js -->
+<script src="/js/jquery/jquery-2.2.4.min.js"></script>
+<!-- Popper js -->
+<script src="/js/bootstrap/popper.min.js"></script>
+<!-- Bootstrap js -->
+<script src="/js/bootstrap/bootstrap.min.js"></script>
+<!-- All Plugins js -->
+<script src="/js/plugins/plugins.js"></script>
+<!-- Active js -->
+<script src="/js/active.js"></script>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover({
+            html: true,
+            placement: 'right',
+            content: "{{# if
+                    auth }}<a href='/logout'>Logout</a>{{else}} <ul class='list-group list-group-flush p-0'><a class='list-group-item list-group-item-action' href='/login'>Login</a><a class='list-group-item list-group-item-action' href='/registration'>Registration</a> </ul> {{/if}}",
+        });
+    });
+</script>
+</body>
+
+</html>
